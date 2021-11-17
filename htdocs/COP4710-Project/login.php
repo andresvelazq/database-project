@@ -1,33 +1,41 @@
 <?php
+  function verify($conn, $table, $email, $password){
+    $query = "SELECT email, password 
+              FROM $table 
+              WHERE email = '$email' AND password = '$password'";
+
+    if ($conn->query($query)->rowCount() > 0){
+      return 1;
+    }
+    else{
+      print "Email or password incorrect.";
+      exit();
+    }
+  }
+
   include "dbpdo.php";
-  $conn= dbConnect();
+  $conn = dbConnect();
 ?>
-
-
 
 <html>
   <body>
-    <h1>Login Successful</h1>
+    <h1>Login Unsuccessful</h1>
     <hr>
   <?php
-    $username = $_POST["username"];
-    $query = "SELECT * FROM professors";
-    foreach ($conn->query($query) as $row) {
-      print $row['pid'];
-      print $row['fname'];
-      print $row['lname'];
-      print $row['email'];
-      print $row['password'];
-      print "<br>";
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    if ($_POST["person_type"] == "staff"){
+      // print "<br>You are Staff";
+      if(verify($conn, 'staff', $email, $password));
+        header("Location: /COP4710-Project/staff_index.php");
+      exit();
     }
-
-    if ($_POST["person_type"] == "staff")
-    print "<br>You are Staff";
-    else
-      echo "You are a Professor";
-
-    echo "<br> Username: ".$_POST["username"]. "<br>";
-    echo "Password: " .$_POST["password"];
+    else{
+      // echo "You are a Professor";
+      if(verify($conn, 'professors', $email, $password));
+        header("Location: /COP4710-Project/prof_index.php");
+      exit();
+    }
   ?>
   </body>
 </html>

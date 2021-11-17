@@ -2,12 +2,12 @@
   <body>
     <h1>Book Order Website</h1>
     <hr>
-    <h2>Please enter your credentials</h2>
+    <h2>Please email and password.</h2>
     <form action = "login.php" method = "post">
-      Username:
-      <input type="text" name="username"><br>
+      Email:
+      <input type="text" name="email"><br>
       Password:
-      <input type="text" name="password"><br>
+      <input type="password" name="password"><br>
 
     <div>
       <input type="radio" id="staff" name="person_type" value="staff"checked>
@@ -19,8 +19,11 @@
     </div><br>
 
     <input type="submit", value="Login">
-    <input type="submit", value="Forgot password", formaction="forgotpw.php"><br>
+    <!-- <input type="submit", value="Forgot password", formaction="forgotpw.php"><br> -->
     <input type="reset", value="Clear Input">
     </form>
+    <div>
+      <a href = forgotpw.php>Forgot password</a>
+    </div>
   </body>
 </html>
