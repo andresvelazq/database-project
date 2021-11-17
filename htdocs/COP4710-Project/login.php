@@ -11,11 +11,14 @@
     <hr>
   <?php
     $username = $_POST["username"];
-    $query = "SELECT * FROM professors WHERE username = '$username'";
+    $query = "SELECT * FROM professors";
     foreach ($conn->query($query) as $row) {
       print $row['pid'];
+      print $row['fname'];
       print $row['lname'];
-      print $row['username'];
+      print $row['email'];
+      print $row['password'];
+      print "<br>";
     }
 
     if ($_POST["person_type"] == "staff")
