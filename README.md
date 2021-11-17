@@ -1,4 +1,5 @@
 # database-project
 htdocs - The php/html front end files and code.
 
-cop4710.sql - Database to be imported.
+[dbname].sql - Database to be imported. How to: https://youtu.be/MlqbWhANbZk
+
