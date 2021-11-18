@@ -27,7 +27,7 @@
     if ($_POST["person_type"] == "staff"){
       // print "<br>You are Staff";
       if(verify($conn, 'staff', $email, $password));
-        header("Location: /COP4710-Project/staff_index.php");
+        header("Location: /COP4710-Project/staffMenu.php");
       exit();
     }
     else{
