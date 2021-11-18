@@ -8,26 +8,26 @@
  <nav>
     <ul>
       <li>
-        <a href = "/COP4710-Project/staffManageAcc.php">Manage Accounts </a> 
-
+        <a href = "staffManageAcc.php">Manage Accounts </a> 
+        
       </li>
       <li>
-        <a href = "/cOP4710-Project/staffFacultyDB.php">Faculty Database </a>
+        <a href = "staffFacultyDB.php">Faculty Database </a>
       </li>
       <li>
-        <a href = "/COP4710-Project/staffEditDB.php">Edit Database</a>
+        <a href = "staffEditDB.php">Edit Database</a>
       </li>
       <li>
-        <a href = "/COP4710-Project/staffBroadcast.php">Broadcast</a>
+        <a href = "staffBroadcast.php">Broadcast</a>
       </li>
       <li>
-        <a href = "/COP4710-Project/staffViewRequest.php">View Request</a>
+        <a href = "staffViewRequest.php">View Request</a>
       </li>
       <li>
-        <a href = "/COP4710-Project/staffFinalList.php">Create Final list </a>
+        <a href = "staffFinalList.php">Create Final list </a>
       </li>
       <li>
-        <a href = "/COP4710-Project/staffViewList.php">View list </a>
+        <a href = "staffViewList.php">View list </a>
       </li>
     </ul>
   </nav>
