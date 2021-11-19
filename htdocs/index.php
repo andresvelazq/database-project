@@ -2,7 +2,7 @@
   <body>
     <h1>Book Order Website</h1>
     <hr>
-    <h2>Please email and password.</h2>
+    <h2>Please enter email and password.</h2>
     <form action = "login.php" method = "post">
       Email:
       <input type="text" name="email"><br>
