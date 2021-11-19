@@ -30,16 +30,7 @@
 			</thead>
 			<tbody>
 				<?php
-                     //$query = "SELECT * FROM staff";
-                     //foreach ($conn->query($query) as $row) {
-/*
-                        print "sid: " .$row['sid'] ."<br>";
-                        print "Fname: " .$row['fname']. "<br>";
-                        print "Lname: " .$row['lname']. "<br>";
-                        print "Email: " .$row['email']. "<br>";
-                        print "Password: " .$row['password']. "<br>";
-                        print "Sadmin: " .$row['sadmin']. "<br>";
-*/
+
 
                          $query = "SELECT * FROM staff";
                          $index = 1;
@@ -66,24 +57,7 @@
                                 <?php 
                                         echo '<input type="submit" value = "update" name = "updateBtn'.$index.'"/>';
                                         echo '</form>';
-                                        if(isset($_POST['updateBtn'.$index.'']))
 
-
-                                            $sid = $_POST['inSID'.$index.''];
-
-
-                                            //$fname = $_POST[$row['fname']];
-                                            $sid =$row['sid'];
-                                     
-                                            //$update = "UPDATE staff SET sid = '$sid'";
-                                            /*
-                                            $fname = $_POST[$row['fname']];
-                                            $lname = $_POST[$row['lname']];
-                                            $email = $_POST[$row['email']];
-                                            $password = $_POST[$row['password']];
-                                            $sadmin = $_POST[$row['password']];
-                                    $update = "UPDATE staff SET sid = '$sid', fname= '$fname', lname= '$lname', email= '$email', password= '$password', sadmin = '$sadmin'";
-    */
                                 ?>					
                             </td>
 
@@ -92,36 +66,35 @@
 
                             <?php 
                                         echo '<input type="submit" value = "Delete" name = "deleteBtn'.$index.'"/>';
-                                        if(isset($_POST['updateBtn'.$index.'']))
-                                            $sid = $_POST['inSID'.$index.''];
-                                            //$fname = $_POST[$row['fname']];
-                                            //$sid =$row['sid'];
-                                       // echo $sid;
-                                            //$update = "UPDATE staff SET sid = '$sid'";
-                                            /*
-                                            $fname = $_POST[$row['fname']];
-                                            $lname = $_POST[$row['lname']];
-                                            $email = $_POST[$row['email']];
-                                            $password = $_POST[$row['password']];
-                                            $sadmin = $_POST[$row['password']];
-                                    $update = "UPDATE staff SET sid = '$sid', fname= '$fname', lname= '$lname', email= '$email', password= '$password', sadmin = '$sadmin'";
-    */
+
                                 ?>								
 							</td>                           
 						</tr>
 
 
 						<?php
-                          $index++;
+                          $index++;//last iteration index goes to empty row where user can add 
 					}                   
 				?>
-                 <td></td><td></td><td></td><td> </td><td> </td> <td></td> 
-                           <td> 
-                           
-                                <!--<a href="delete.php?id=<?php echo $row['sid']; ?>">Delete</a> !-->
-                                <button type="button">Add!</button>
+                         
+                            <form action = "addStaffTuple.php" method = "post"> <!--adding tuple!-->
+
+                            <td><?php echo '<input type = "text" name ="inSID'.$index.'" value ="" />';?></td>                      
+                            <td><?php echo '<input type = "text" name = "inFname'.$index.'"  value =""/>'; ?></td>
+                            <td><?php echo '<input type = "text" name = "inLname'.$index.'" value =""/>'; ?></td>
+                            <td><?php echo '<input type = "text" name = "inEmail'.$index.'" value =""/>'; ?></td>
+                            <td><?php echo '<input type = "text" name = "inPass'.$index.'" value =""/>'; ?></td>
+                            <td><?php echo '<input type = "text" name = "inSadmin'.$index.'" value =""/>'; ?></td>   
+                            <?php echo '<input type = "hidden" name = "index" value ="'.$index.'"/>'; ?>           
+                            <td>
+                            <?php
+                            echo '<input type="submit" value = "Add"name = "addBtn'.$index.'"/>';
+                            $index++;//after add increment to create new emply tuple
+                              echo '</form>';
+                            ?>
+     
                                 
-							</td>                 
+							</td>                
 			</tbody>
 		</table>
 	</div> 
