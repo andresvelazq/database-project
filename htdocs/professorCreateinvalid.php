@@ -3,6 +3,7 @@
     <h1>Create a new account</h1>
     <hr>
     <h2>Please enter email and password.</h2>
+    
     <form action = "checkpass.php" method = "post">
       <p>
         First name:
@@ -22,13 +23,15 @@
       <p>
         Password:
         <input type="password" name="password1">
+        Passwords do not match
       </p>
 
       <p>
       Re-enter Password:
       <input type="password" name="password2">
+      Passwords do not match
       </p>
-
+      
       <input type="submit", value="Create Account">
       <!-- <input type="submit", value="Forgot password", formaction="forgotpw.php"><br> -->
       <input type="reset", value="Clear Input">
