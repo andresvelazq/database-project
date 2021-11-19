@@ -1,24 +1,33 @@
 <?php
     include "dbpdo.php";
-    $conn = dbConnect();
-	$id=$_GET['id'];
-
-	$query = "SELECT * FROM staff where userid='$id'";
-	//$row=mysqli_fetch_array($query);
+    $conn = dbConnect(); // connect to DB.
 ?>
+
 <html>
-<head>
-<title>Delete Account </title>
-</head>
-<body>
-	<h2>Edit</h2>
-    <!--
-	<form method="POST" action="update.php?id=<?php echo $id; ?>">
-		<label>Firstname:</label><input type="text" value="<?php echo $row['firstname']; ?>" name="firstname">
-		<label>Lastname:</label><input type="text" value="<?php echo $row['lastname']; ?>" name="lastname">
-		<input type="submit" name="submit">
-		<a href="index.php">Back</a>
-	</form>
-    !-->
-</body>
+  <body>
+    <?php
+        $index = $_POST["index"];
+        $sid = $_POST["inSID".$index];
+        $fname = $_POST["inFname".$index];
+        $lname = $_POST["inLname".$index];
+        $email = $_POST["inEmail".$index];
+        $password = $_POST["inPass".$index];
+        $sadmin = $_POST["inSadmin".$index];
+      
+     
+        //$update = "UPDATE staff SET fname = '$fname' WHERE sid = '$index'";
+        
+		$delete = "DELETE FROM staff WHERE sid = '$index'";
+        
+		// prepare statement
+        $stmt = $conn->prepare($update);
+        //execute query
+        $stmt->execute();
+        
+        // print staff table.
+        printStaff($conn);
+
+    
+    ?>
+  </body>
 </html>

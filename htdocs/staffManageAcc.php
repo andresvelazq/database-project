@@ -42,7 +42,7 @@
 */
 
                          $query = "SELECT * FROM staff";
-                         $index = 0;
+                         $index = 1;
                         foreach ($conn->query($query) as $row) {
 						?>
 						<tr>
@@ -86,6 +86,8 @@
     */
                                 ?>					
                             </td>
+
+
                             <td>
 
                             <?php 
