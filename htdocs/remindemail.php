@@ -1,8 +1,14 @@
 <?php
 include "dbpdo.php";
 
+<form name="remind" action="" method="get">
+    <input type="text" name="date" id="date" value="Deadline">
+</form>
+
+$deadline = $_GET['date'];
+
 $subject = "Deadline to Submit Book Requests";
-$message = "Professors, please remember to submit your book requests by <deadline>.";
+$message = "Professors, please remember to submit your book requests by $deadline".;
 
 // word wrap just in case
 $message = wordwrap($message, 70, "\r\n");
