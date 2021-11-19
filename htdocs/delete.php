@@ -20,7 +20,7 @@
 		$delete = "DELETE FROM staff WHERE sid = '$index'";
         
 		// prepare statement
-        $stmt = $conn->prepare($update);
+        $stmt = $conn->prepare($delete);
         //execute query
         $stmt->execute();
         
