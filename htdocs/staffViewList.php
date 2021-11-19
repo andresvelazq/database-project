@@ -12,27 +12,6 @@
  <body>
   <h1>View List</h1>
      <hr>
-
-<table border="1">
-  <tr>
-    <th>Person 1</th>
-    <th>Person 2</th>
-    <th>Person 3</th>
-  </tr>
-  <tr>
-    <td>Emil</td>
-    <td>Tobias</td>
-    <td>Linus</td>
-    <td>
-  </tr>
-  <tr>
-    <td>16</td>
-    <td>14</td>
-    <td>10</td>
-  </tr>
-</table>
-
-
  <?php
      $name;
      $name = "steve";
