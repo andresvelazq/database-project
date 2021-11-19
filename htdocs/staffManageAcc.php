@@ -96,7 +96,7 @@
                                             $sid = $_POST['inSID'.$index.''];
                                             //$fname = $_POST[$row['fname']];
                                             //$sid =$row['sid'];
-                                        echo $sid;
+                                       // echo $sid;
                                             //$update = "UPDATE staff SET sid = '$sid'";
                                             /*
                                             $fname = $_POST[$row['fname']];
