@@ -22,7 +22,7 @@
                 <th>lastname</th>
 				<th>email</th>
                 <th>password</th>
-                <th>sid</th>
+                <th>sAdmin</th>
                 <th bgcolor = #009933>Update</th>
                 <th bgcolor = #FF0000 >Delete</th>
 				<!--<th>Lastname</th>!-->
