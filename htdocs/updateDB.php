@@ -15,8 +15,10 @@
         $sadmin = $_POST["inSadmin".$index];
       
         // function to update DB.
-        $update = "UPDATE staff SET fname = '$fname' WHERE sid = '$index'";
-        $delete = "DELETE FROM staff WHERE sid = '$index'";
+        $update = "UPDATE staff SET fname = '$fname', lname = '$lname',
+                    email = '$email', password = '$password', sadmin = '$sadmin' 
+                    WHERE sid = '$index'";
+
         // prepare statement
         $stmt = $conn->prepare($update);
         //execute query
