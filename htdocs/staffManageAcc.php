@@ -22,7 +22,7 @@
                 <th>lastname</th>
 				<th>email</th>
                 <th>password</th>
-                <th>sadmin</th>
+                <th>sid</th>
                 <th bgcolor = #009933>Update</th>
                 <th bgcolor = #FF0000 >Delete</th>
 				<!--<th>Lastname</th>!-->
@@ -31,12 +31,14 @@
 			<tbody>
 				<?php
 
+
                          $query = "SELECT * FROM staff";
                          $index = 1;
                         foreach ($conn->query($query) as $row) {
 						?>
 						<tr>
 
+							<!--<td><?php echo $row['sid']; ?></td>!-->
 
                             <form action = "updateDB.php" method = "post">
 
@@ -71,12 +73,12 @@
 
 
 						<?php
-                          $index++;
+                          $index++;//last iteration index goes to empty row where user can add 
 					}                   
 				?>
-                           <?php $index ;  echo $index ?> 
-                            <form action = "addStaffTuple.php" method = "post">
-                            <?php $index ;  echo $index ?> 
+                         
+                            <form action = "addStaffTuple.php" method = "post"> <!--adding tuple!-->
+
                             <td><?php echo '<input type = "text" name ="inSID'.$index.'" value ="" />';?></td>                      
                             <td><?php echo '<input type = "text" name = "inFname'.$index.'"  value =""/>'; ?></td>
                             <td><?php echo '<input type = "text" name = "inLname'.$index.'" value =""/>'; ?></td>
@@ -86,13 +88,13 @@
                             <?php echo '<input type = "hidden" name = "index" value ="'.$index.'"/>'; ?>           
                             <td>
                             <?php
-                            echo '<input type="submit" value = "Addii" name = "addBtn'.$index.'"/>';
-                            $index++;
+                            echo '<input type="submit" value = "Add"name = "addBtn'.$index.'"/>';
+                            $index++;//after add increment to create new emply tuple
                               echo '</form>';
                             ?>
      
                                 
-							</td>                 
+							</td>                
 			</tbody>
 		</table>
 	</div> 
