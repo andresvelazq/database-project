@@ -13,6 +13,8 @@
         $email = $_POST["inEmail".$index];
         $password = $_POST["inPass".$index];
         $sadmin = $_POST["inSadmin".$index];
+        //echo $_POST['updateBtn'.$index];
+        $stmt = NULL;
       
         // function to update DB.
       
@@ -21,8 +23,16 @@
           exit();      
       }
         $update = "UPDATE staff SET fname = '$fname', lname= '$lname', email= '$email', password= '$password', sadmin = '$sadmin' WHERE sid = '$index'";
-        // prepare statement
-        $stmt = $conn->prepare($update);
+        $delete = "DELETE FROM staff WHERE sid = '$index'";
+        
+        if(isset($_POST["updateBtn".$index])){
+            $stmt = $conn->prepare($update);
+        }else if(isset($_POST['deleteBtn'.$index])){
+            $stmt = $conn->prepare($delete);
+        }else{
+            echo "button was not clicked";
+        }
+
         //execute query
         $stmt->execute();
         

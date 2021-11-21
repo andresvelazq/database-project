@@ -56,11 +56,8 @@
 
                                 <?php 
                                         echo '<input type="submit" value = "update" name = "updateBtn'.$index.'"/>';
-                                     
-
                                 ?>					
                             </td>
-
 
                             <td>
 
