@@ -15,6 +15,10 @@
       $password = $_POST["inPass".$index];
       $sadmin = $_POST["inSadmin".$index];
       
+      if(empty($sid) ||  empty($fname) || empty($lname) || empty($email) || empty($password) || empty($sadmin) ){
+        header("Location: staffManageAcc.php");//no update if fields all/some are empty
+        exit();      
+    }      
       $add = "INSERT INTO staff (`sid`, `fname`, `lname`, `email`, `password`, `sadmin`) VALUES ('$sid', '$fname', '$lname', '$email','$password','$sadmin')";
       $stmt = $conn->prepare($add);
       //execute query
