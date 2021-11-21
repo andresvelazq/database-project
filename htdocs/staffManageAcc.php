@@ -56,7 +56,7 @@
 
                                 <?php 
                                         echo '<input type="submit" value = "update" name = "updateBtn'.$index.'"/>';
-                                        echo '</form>';
+                                     
 
                                 ?>					
                             </td>
@@ -66,7 +66,7 @@
 
                             <?php 
                                         echo '<input type="submit" value = "Delete" name = "deleteBtn'.$index.'"/>';
-
+                                        echo '</form>';
                                 ?>								
 							</td>                           
 						</tr>
