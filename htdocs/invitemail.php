@@ -1,19 +1,22 @@
 <?php
 include "dbpdo.php";
+$conn = dbConnect();
 
-$invite = echo '<a href="someurl.com.html">make book requests</a>';
+
+$invite = '<a href="someurl.com.html">make book requests</a>';
 
 $subject = "Invite to Request Book Info";
-$message = "Professors, please use this link to $invite.";
+$message = "Please use this link to $invite.";
 
 // word wrap just in case
 $message = wordwrap($message, 70, "\r\n");
 
-$sql = "SELECT email FROM professors";
-$result = $conn->query($sql);
+$query = "SELECT * FROM professors";
 
-if ($result->num_rows > 0) {
-    $email = $row["email"];
-    mail($email, $subject, $message);
+foreach ($conn->query($query) as $row) {
+    print "To: " .$row['email']. "<br>
+    Subject: " .$subject. "<br>
+    Message: <br> Hello Professor ".$row['lname']. ",<br>" .$message. "<br><br>";
+    // mail($row['email'], $subject, $message);
 }
 ?>

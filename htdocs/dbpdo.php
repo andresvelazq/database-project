@@ -55,4 +55,50 @@ function printBooks($conn){
   }
 }
 
+// Creates a session and session variables for a given index and table.
+function sessionInfo($conn, $index, $table){
+  session_start();
+
+  // Professors table.
+  if ($table == "professors"){
+    $query = "SELECT * FROM $table WHERE pid = $index";
+
+    foreach ($conn->query($query) as $result) {
+      $_SESSION["pid"] = $result['pid'];
+      $_SESSION["fname"] = $result['fname'];
+      $_SESSION["lname"] = $result['lname'];
+      $_SESSION["email"] = $result['email'];
+      $_SESSION["password"] = $result['password'];
+    }
+  }
+
+  // Staff table.
+  if ($table == "staff"){
+    $query = "SELECT * FROM $table WHERE sid = $index";
+
+    foreach ($conn->query($query) as $result) {
+      $_SESSION["sid"] = $result['sid'];
+      $_SESSION["fname"] = $result['fname'];
+      $_SESSION["lname"] = $result['lname'];
+      $_SESSION["email"] = $result['email'];
+      $_SESSION["password"] = $result['password'];
+      $_SESSION["sadmin"] = $result['sadmin'];
+    }
+  }
+
+    // Books table.
+    if ($table == "books"){
+      $query = "SELECT * FROM $table WHERE bid = $index";
+  
+      foreach ($conn->query($query) as $result) {
+        $_SESSION["bid"] = $result['bid'];
+        $_SESSION["title"] = $result['title'];
+        $_SESSION["author"] = $result['author'];
+        $_SESSION["isbn"] = $result['isbn'];
+        $_SESSION["edition"] = $result['edition'];
+        $_SESSION["publisher"] = $result['publisher'];
+      }
+    }
+}
+
 ?>
