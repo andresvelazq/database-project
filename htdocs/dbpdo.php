@@ -22,7 +22,7 @@ function dbConnect(){
 function printStaff($conn){
   $query = "SELECT * FROM staff";
   foreach ($conn->query($query) as $row) {
-    print "sid: " .$row['sid'] ."<br>";
+    print "id: " .$row['id'] ."<br>";
     print "Fname: " .$row['fname']. "<br>";
     print "Lname: " .$row['lname']. "<br>";
     print "Email: " .$row['email']. "<br>";
@@ -35,7 +35,7 @@ function printStaff($conn){
 function printProfessors($conn){
   $query = "SELECT * FROM professors";
   foreach ($conn->query($query) as $row) {
-    print "pid: " .$row['pid'] ."<br>";
+    print "id: " .$row['id'] ."<br>";
     print "Fname: " .$row['fname']. "<br>";
     print "Lname: " .$row['lname']. "<br>";
     print "Email: " .$row['email']. "<br>";
@@ -47,7 +47,7 @@ function printProfessors($conn){
 function printBooks($conn){
   $query = "SELECT * FROM books";
   foreach ($conn->query($query) as $row) {
-    print "bid: " .$row['bid'] ."<br>";
+    print "id: " .$row['id'] ."<br>";
     print "Title: " .$row['Title']. "<br>";
     print "Author: " .$row['Author']. "<br>";
     print "ISBN: " .$row['ISBN']. "<br>";
@@ -61,10 +61,10 @@ function sessionInfo($conn, $index, $table){
 
   // Professors table.
   if ($table == "professors"){
-    $query = "SELECT * FROM $table WHERE pid = $index";
+    $query = "SELECT * FROM $table WHERE id = $index";
 
     foreach ($conn->query($query) as $result) {
-      $_SESSION["pid"] = $result['pid'];
+      $_SESSION["id"] = $result['id'];
       $_SESSION["fname"] = $result['fname'];
       $_SESSION["lname"] = $result['lname'];
       $_SESSION["email"] = $result['email'];
@@ -74,10 +74,10 @@ function sessionInfo($conn, $index, $table){
 
   // Staff table.
   if ($table == "staff"){
-    $query = "SELECT * FROM $table WHERE sid = $index";
+    $query = "SELECT * FROM $table WHERE id = $index";
 
     foreach ($conn->query($query) as $result) {
-      $_SESSION["sid"] = $result['sid'];
+      $_SESSION["id"] = $result['id'];
       $_SESSION["fname"] = $result['fname'];
       $_SESSION["lname"] = $result['lname'];
       $_SESSION["email"] = $result['email'];
@@ -88,10 +88,10 @@ function sessionInfo($conn, $index, $table){
 
     // Books table.
     if ($table == "books"){
-      $query = "SELECT * FROM $table WHERE bid = $index";
+      $query = "SELECT * FROM $table WHERE id = $index";
   
       foreach ($conn->query($query) as $result) {
-        $_SESSION["bid"] = $result['bid'];
+        $_SESSION["id"] = $result['id'];
         $_SESSION["title"] = $result['title'];
         $_SESSION["author"] = $result['author'];
         $_SESSION["isbn"] = $result['isbn'];
