@@ -17,12 +17,12 @@
      <div>
 		<table border="3">
 			<thead>
-				<th>SID</th>
+				<th>ID</th>
 				<th>firstname</th>
                 <th>lastname</th>
 				<th>email</th>
                 <th>password</th>
-                <th>sid</th>
+                <th>id</th>
                 <th bgcolor = #009933>Update</th>
                 <th bgcolor = #FF0000 >Delete</th>
 				<!--<th>Lastname</th>!-->
@@ -38,11 +38,11 @@
 						?>
 						<tr>
 
-							<!--<td><?php echo $row['sid']; ?></td>!-->
+							<!--<td><?php echo $row['id']; ?></td>!-->
 
                             <form action = "updateDB.php" method = "post">
 
-                            <td><?php echo '<input type = "text" name ="inSID'.$index.'" value ="'.$row['sid'].'"  />';?></td>                      
+                            <td><?php echo '<input type = "text" name ="inID'.$index.'" value ="'.$row['id'].'"  />';?></td>                      
                             <td><?php echo '<input type = "text" name = "inFname'.$index.'"  value ="'.$row['fname'].'"/>'; ?></td>
                             <td><?php echo '<input type = "text" name = "inLname'.$index.'" value ="'.$row['lname'].'"/>'; ?></td>
                             <td><?php echo '<input type = "text" name = "inEmail'.$index.'" value ="'.$row['email'].'"/>'; ?></td>
@@ -76,7 +76,7 @@
                          
                             <form action = "addStaffTuple.php" method = "post"> <!--adding tuple!-->
 
-                            <td><?php echo '<input type = "text" name ="inSID'.$index.'" value ="" />';?></td>                      
+                            <td><?php echo '<input type = "text" name ="inID'.$index.'" value ="" />';?></td>                      
                             <td><?php echo '<input type = "text" name = "inFname'.$index.'"  value =""/>'; ?></td>
                             <td><?php echo '<input type = "text" name = "inLname'.$index.'" value =""/>'; ?></td>
                             <td><?php echo '<input type = "text" name = "inEmail'.$index.'" value =""/>'; ?></td>

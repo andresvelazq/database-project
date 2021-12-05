@@ -19,7 +19,7 @@
         header("Location: staffManageAcc.php");//no update if fields all/some are empty
         exit();      
     }      
-      $add = "INSERT INTO staff (`sid`, `fname`, `lname`, `email`, `password`, `sadmin`) VALUES ('$sid', '$fname', '$lname', '$email','$password','$sadmin')";
+      $add = "INSERT INTO staff (`id`, `fname`, `lname`, `email`, `password`, `sadmin`) VALUES ('$sid', '$fname', '$lname', '$email','$password','$sadmin')";
       $stmt = $conn->prepare($add);
       //execute query
       $stmt->execute();
