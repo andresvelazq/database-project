@@ -7,7 +7,7 @@
   <body>
     <?php
         $index = $_POST["index"];
-        $sid = $_POST["inSID".$index];
+        $id = $_POST["inID".$index];
         $fname = $_POST["inFname".$index];
         $lname = $_POST["inLname".$index];
         $email = $_POST["inEmail".$index];
@@ -18,12 +18,12 @@
       
         // function to update DB.
       
-        if(empty($sid) ||  empty($fname) || empty($lname) || empty($email) || empty($password) || empty($sadmin) ){
+        if(empty($fname) || empty($lname) || empty($email) || empty($password) ){
           header("Location: staffManageAcc.php");//no update if fields all/some are empty
           exit();      
       }
-        $update = "UPDATE staff SET fname = '$fname', lname= '$lname', email= '$email', password= '$password', sadmin = '$sadmin' WHERE sid = '$index'";
-        $delete = "DELETE FROM staff WHERE sid = '$index'";
+        $update = "UPDATE staff SET fname = '$fname', lname= '$lname', email= '$email', password= '$password' WHERE id = '$index'";
+        $delete = "DELETE FROM staff WHERE id = '$index'";
         
         if(isset($_POST["updateBtn".$index])){
             $stmt = $conn->prepare($update);

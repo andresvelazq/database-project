@@ -43,7 +43,7 @@
       echo"<br><br>";
      $query = "SELECT * FROM staff";
      foreach ($conn->query($query) as $row) {
-       print "sid: " .$row['sid'] ."<br>";
+       print "id: " .$row['id'] ."<br>";
        print "Fname: " .$row['fname']. "<br>";
        print "Lname: " .$row['lname']. "<br>";
        print "Email: " .$row['email']. "<br>";

@@ -1,10 +1,17 @@
 <?php
   function verify($conn, $table, $email, $password){
-    $query = "SELECT email, password 
+    $query = "SELECT id, email, password 
               FROM $table 
               WHERE email = '$email' AND password = '$password'";
 
+    // If a query is found.
     if ($conn->query($query)->rowCount() > 0){
+
+      // Starts the session for the appropriate user.
+      $sth = $conn->prepare($query);
+      $sth->execute();
+      $result = $sth->fetch(PDO::FETCH_ASSOC);
+      sessionInfo($conn, $result['id'], $table);
       return 1;
     }
     else{

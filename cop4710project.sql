@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2021 at 06:47 PM
+-- Generation Time: Dec 04, 2021 at 11:55 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -28,20 +28,22 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `books` (
-  `bid` int(11) NOT NULL,
-  `Title` text NOT NULL,
-  `Author` text NOT NULL,
-  `ISBN` text NOT NULL
+  `id` int(11) NOT NULL,
+  `title` text NOT NULL,
+  `author` text NOT NULL,
+  `isbn` text NOT NULL,
+  `edition` text NOT NULL,
+  `publisher` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`bid`, `Title`, `Author`, `ISBN`) VALUES
-(1, '\"First Book\"', 'Author1', 'ABCD-1234567890123-1'),
-(2, '\"Second Book\"', 'Author2', 'ABCD-1234567890123-2'),
-(3, '\"Third Book\"', 'Author3', 'ABCD-1234567890123-3');
+INSERT INTO `books` (`id`, `title`, `author`, `isbn`, `edition`, `publisher`) VALUES
+(1, '\"First Book\"', 'Author1', 'ABCD-1234567890123-1', '1', 'Pub1'),
+(2, '\"Second Book\"', 'Author2', 'ABCD-1234567890123-2', '2', 'Pub2'),
+(3, '\"Third Book\"', 'Author3', 'ABCD-1234567890123-3', '3', 'Pub3');
 
 -- --------------------------------------------------------
 
@@ -50,7 +52,7 @@ INSERT INTO `books` (`bid`, `Title`, `Author`, `ISBN`) VALUES
 --
 
 CREATE TABLE `professors` (
-  `pid` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `fname` text NOT NULL,
   `lname` text NOT NULL,
   `email` text NOT NULL,
@@ -61,7 +63,7 @@ CREATE TABLE `professors` (
 -- Dumping data for table `professors`
 --
 
-INSERT INTO `professors` (`pid`, `fname`, `lname`, `email`, `password`) VALUES
+INSERT INTO `professors` (`id`, `fname`, `lname`, `email`, `password`) VALUES
 (1, 'John', 'Doe', 'johndoe@fcu.edu', 'password'),
 (2, 'Jane', 'Doe', 'janedoe@fcu.edu', 'password'),
 (3, 'Joe', 'Smith', 'joesmith@fcu.edu', 'password');
@@ -73,7 +75,7 @@ INSERT INTO `professors` (`pid`, `fname`, `lname`, `email`, `password`) VALUES
 --
 
 CREATE TABLE `staff` (
-  `sid` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `fname` text NOT NULL,
   `lname` text NOT NULL,
   `password` text NOT NULL DEFAULT 'password',
@@ -85,7 +87,7 @@ CREATE TABLE `staff` (
 -- Dumping data for table `staff`
 --
 
-INSERT INTO `staff` (`sid`, `fname`, `lname`, `password`, `email`, `sadmin`) VALUES
+INSERT INTO `staff` (`id`, `fname`, `lname`, `password`, `email`, `sadmin`) VALUES
 (1, 'Sam', 'Admin', 'password', 'samadmin@fcu.edu', 1),
 (2, 'Dan', 'Admin', 'password', 'danadmin@fcu.edu', 0),
 (3, 'Pam', 'Admin', 'password', 'pamadmin@fcu.edu', 0);
@@ -98,19 +100,19 @@ INSERT INTO `staff` (`sid`, `fname`, `lname`, `password`, `email`, `sadmin`) VAL
 -- Indexes for table `books`
 --
 ALTER TABLE `books`
-  ADD PRIMARY KEY (`bid`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `professors`
 --
 ALTER TABLE `professors`
-  ADD PRIMARY KEY (`pid`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `staff`
 --
 ALTER TABLE `staff`
-  ADD PRIMARY KEY (`sid`);
+  ADD PRIMARY KEY (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

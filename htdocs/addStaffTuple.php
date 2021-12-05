@@ -8,18 +8,18 @@
   <body>
     <?php
       $index = $_POST["index"];
-      $sid = $_POST["inSID".$index];
+      $id = $_POST["inID".$index];
       $fname = $_POST["inFname".$index];
       $lname = $_POST["inLname".$index];
       $email = $_POST["inEmail".$index];
       $password = $_POST["inPass".$index];
       $sadmin = $_POST["inSadmin".$index];
       
-      if(empty($sid) ||  empty($fname) || empty($lname) || empty($email) || empty($password) || empty($sadmin) ){
+      if(empty($fname) || empty($lname) || empty($email) || empty($password) ){
         header("Location: staffManageAcc.php");//no update if fields all/some are empty
         exit();      
     }      
-      $add = "INSERT INTO staff (`sid`, `fname`, `lname`, `email`, `password`, `sadmin`) VALUES ('$sid', '$fname', '$lname', '$email','$password','$sadmin')";
+      $add = "INSERT INTO staff (`fname`, `lname`, `email`, `password`, `sadmin`) VALUES ('$fname', '$lname', '$email','$password','$sadmin')";
       $stmt = $conn->prepare($add);
       //execute query
       $stmt->execute();

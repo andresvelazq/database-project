@@ -4,6 +4,10 @@
  </head>
  <body>
  <h1>Staff Menu </h1>
+<?php
+  session_start();
+  print "Hello ".$_SESSION['fname'];
+?>
  <hr>
  <nav>
     <ul>
