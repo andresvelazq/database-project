@@ -18,11 +18,11 @@
       
         // function to update DB.
       
-        if(empty($id) ||  empty($fname) || empty($lname) || empty($email) || empty($password) || empty($sadmin) ){
+        if(empty($fname) || empty($lname) || empty($email) || empty($password) ){
           header("Location: staffManageAcc.php");//no update if fields all/some are empty
           exit();      
       }
-        $update = "UPDATE staff SET fname = '$fname', lname= '$lname', email= '$email', password= '$password', sadmin = '$sadmin' WHERE id = '$index'";
+        $update = "UPDATE staff SET fname = '$fname', lname= '$lname', email= '$email', password= '$password' WHERE id = '$index'";
         $delete = "DELETE FROM staff WHERE id = '$index'";
         
         if(isset($_POST["updateBtn".$index])){
