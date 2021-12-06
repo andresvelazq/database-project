@@ -3,7 +3,6 @@
   include "dbpdo.php";
   //include "updateDB.php";
   $conn = dbConnect();
-
 ?>
 
 <html>
@@ -11,12 +10,12 @@
     <h2>This searches the database for a valid username and secret answer.</h2>
     <?php
       // Grab post variables
-      $usename = $_POST['usename'];
+      $username = $_POST['username'];
       //echo $usename;
       $stmt = NULL;
 
       // query to select from staff
-      $query = "SELECT email FROM staff st WHERE st.email = '$usename'";
+      $query = "SELECT email FROM staff st WHERE st.email = '$username'";
 
       // If a query is found.
       if ($conn->query($query)->rowCount() > 0){
@@ -28,10 +27,10 @@
         $newPassword = randomPassword();
 
         // print password to user
-        printPassword($usename,$newPassword);
+        printPassword($username,$newPassword);
         
         // function that sets the new generated password to the username.
-        updatePassword($newPassword, $conn, $usename);
+        updatePassword($newPassword, $conn, $username);
 
         return 1;
       }
@@ -42,19 +41,18 @@
     ?>
 
     <?php
-      function updatePassword($newPassword, $conn, $usename){
+      function updatePassword($newPassword, $conn, $username){
       // update database password
-        $update = "UPDATE staff SET password= '$newPassword' WHERE email = '$usename'";
+        $update = "UPDATE staff SET password= '$newPassword' WHERE email = '$username'";
         $stmt = $conn->prepare($update);
         $stmt->execute();
       }
     ?>
 
     <?php
-      function printPassword($usename, $newPassword){
-        echo "Hello '$usename' your temporary password is: '$newPassword'";
+      function printPassword($username, $newPassword){
+        echo "Hello '$username' your temporary password is: '$newPassword'";
       }
-    
     ?>
 
     <?php
