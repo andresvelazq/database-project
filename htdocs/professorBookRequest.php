@@ -42,7 +42,17 @@
               <td><?php echo $row['isbn']; ?></td>
               <td><?php echo $row['edition']; ?></td>
               <td><?php echo '<input type = "text" name = "inCourseUpdate'.$index.'"  value ="'.$row['cid'].'"/>'; ?></td>
-              <td><?php echo '<input type = "text" name = "inSemesterUpdate'.$index.'"  value ="'.$row['semester'].'"/>'; ?></td>
+              <td><?php echo '<select name = "inSemesterUpdate'.$index.'" size="1">';
+                              if ($row['semester'] == 'fallSem') print '<option value ="fallSem" selected="selected">Fall</option>';
+                              else print '<option value ="fallSem">Fall</option>';
+
+                              if ($row['semester'] == 'springSem') print '<option value ="springSem" selected="selected">Spring</option>';
+                              else print '<option value ="springSem">Spring</option>';
+
+                              if ($row['semester'] == 'summerSem') print '<option value ="summerSem" selected="selected">Summer</option>';
+                              else print '<option value ="summerSem">Summer</option>';
+                              
+                              print '</select>'; ?></td>
               <td><?php echo '<input type = "text" name = "inQtyUpdate'.$index.'"  value ="'.$row['qty'].'"/>'; ?></td>
               <?php echo '<input type = "hidden" name = "index" value ="'.$index.'"/>'; ?>
               <td><?php echo '<input type="submit" value = "Update" name = "updateBtn'.$index.'"/>';?></td>
@@ -84,7 +94,11 @@
               <td><?php echo $row['isbn']; ?></td>
               <td><?php echo $row['edition']; ?></td>
               <td><?php echo '<input type = "text" name = "inCourse'.$index.'"  value =""/>'; ?></td>
-              <td><?php echo '<input type = "text" name = "inSemester'.$index.'"  value =""/>'; ?></td>
+              <td><?php echo '<select name = "inSemesterAdd" size="1">
+                              <option value ="fallSem">Fall</option>
+                              <option value ="springSem">Spring</option>
+                              <option value ="summerSem">Summer</option>
+                              </select>'; ?></td>
               <td><?php echo '<input type = "text" name = "inQty'.$index.'"  value =""/>'; ?></td>
               <?php echo '<input type = "hidden" name = "index" value ="'.$index.'"/>'; ?>
               <td><?php echo '<input type="submit" value = "Add" name = "addBtn'.$index.'"/>';?></td>

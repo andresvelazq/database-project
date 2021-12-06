@@ -11,7 +11,7 @@
         $bid = $_POST["index"];
         $pid = $_SESSION['id'];
         $cid = $_POST["inCourse".$index];
-        $semester = $_POST["inSemester".$index];
+        $semester = $_POST["inSemesterAdd"];
         $qty = $_POST["inQty".$index];
         $stmt = NULL;
 

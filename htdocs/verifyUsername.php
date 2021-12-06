@@ -3,24 +3,27 @@
   include "dbpdo.php";
   //include "updateDB.php";
   $conn = dbConnect();
+  session_start();
 ?>
 
 <html>
   <body>
-    <h2>This searches the database for a valid username and secret answer.</h2>
+    <title>Temporary Password</title>
+    <h2>Temporary Password</h2>
     <?php
       // Grab post variables
       $username = $_POST['username'];
       $secret_question = $_POST['secret_question'];
+      $table = $_POST['person_type'];
       $isReset = 1;
 
       //echo $usename;
       $stmt = NULL;
 
       // query to select from staff
-      $query_username = "SELECT email FROM staff st WHERE st.email = '$username'";
-      $query_secret = "SELECT secret FROM Staff st WHERE st.secret = '$secret_question'";
-      $query_reset_update = "SELECT reset FROM Staff st WHERE st.reset = '$isReset'";
+      $query_username = "SELECT email FROM $table WHERE email = '$username'";
+      $query_secret = "SELECT secret FROM $table WHERE secret = '$secret_question'";
+      $query_reset_update = "SELECT reset FROM $table WHERE reset = '$isReset'";
 
       // If a query is found.
       if ($conn->query($query_username )->rowCount() > 0 && $conn->query($query_secret)->rowCount() > 0){
@@ -36,7 +39,7 @@
         printPassword($username,$newPassword);
         
         // function that sets the new generated password to the username.
-        updatePassword($newPassword, $conn, $username, $isReset);
+        updatePassword($newPassword, $conn, $username, $isReset, $table);
 
         return 1;
       }
@@ -47,9 +50,9 @@
     ?>
 
     <?php
-      function updatePassword($newPassword, $conn, $username, $isReset){
+      function updatePassword($newPassword, $conn, $username, $isReset, $table){
       // update database password
-        $update = "UPDATE staff SET password= '$newPassword', reset = '$isReset' WHERE email = '$username'";
+        $update = "UPDATE $table SET password= '$newPassword', reset = '$isReset' WHERE email = '$username'";
         $stmt = $conn->prepare($update);
         $stmt->execute();
       }
@@ -57,9 +60,11 @@
 
     <?php
       function printPassword($username, $newPassword){
-        echo "Hello '$username' your temporary password is: '$newPassword'";
+        echo "Hello ".$username." your temporary password is: ".$newPassword;
+        echo "<br><br><a href = index.php>Back to login</a><br>";
       }
     ?>
+      
 
     <?php
       // password generator function

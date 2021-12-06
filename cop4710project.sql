@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2021 at 04:22 AM
+-- Generation Time: Dec 06, 2021 at 06:12 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -68,8 +68,7 @@ CREATE TABLE `professors` (
 INSERT INTO `professors` (`id`, `fname`, `lname`, `email`, `password`, `secret`, `reset`) VALUES
 (1, 'John', 'Doe', 'johndoe@fcu.edu', 'password', 'secret', 0),
 (2, 'Jane', 'Doe', 'janedoe@fcu.edu', 'password', 'secret', 0),
-(3, 'Joe', 'Smith', 'joesmith@fcu.edu', 'password', 'secret', 0),
-(11, 'Woody', 'Owens', 'w', 'w', 'www', 0);
+(3, 'Joe', 'Smith', 'joesmith@fcu.edu', 'password', 'secret', 0);
 
 -- --------------------------------------------------------
 
@@ -91,13 +90,13 @@ CREATE TABLE `requests` (
 --
 
 INSERT INTO `requests` (`id`, `pid`, `bid`, `cid`, `semester`, `qty`) VALUES
-(1, 1, 1, 1001, 'Spring-20', 30),
-(2, 1, 1, 1002, 'Fall-20', 30),
-(3, 2, 3, 2002, 'Spring-21', 10),
-(4, 3, 3, 3003, 'Spring-22', 33),
-(24, 2, 1, 2003, 'Fall-21', 12),
-(25, 3, 2, 3032, 'Summer-19', 25),
-(28, 11, 1, 0, '', 0);
+(1, 1, 1, 1001, 'summerSem', 30),
+(2, 1, 1, 1002, 'springSem', 30),
+(3, 2, 3, 2002, 'summerSem', 10),
+(4, 3, 3, 3003, 'fallSem', 33),
+(24, 2, 1, 2003, 'springSem', 12),
+(25, 3, 2, 3032, 'fallSem', 25),
+(42, 1, 1, 1003, 'fallSem', 10);
 
 -- --------------------------------------------------------
 
@@ -167,13 +166,13 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT for table `professors`
 --
 ALTER TABLE `professors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `staff`
