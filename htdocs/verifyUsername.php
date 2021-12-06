@@ -11,17 +11,20 @@
     <?php
       // Grab post variables
       $username = $_POST['username'];
+      $secret_question = $_POST['secret_question'];
+
       //echo $usename;
       $stmt = NULL;
 
       // query to select from staff
-      $query = "SELECT email FROM staff st WHERE st.email = '$username'";
+      $query_username = "SELECT email FROM staff st WHERE st.email = '$username'";
+      $query_secret = "SELECT secret FROM Staff st WHERE st.secret = '$secret_question'";
 
       // If a query is found.
-      if ($conn->query($query)->rowCount() > 0){
+      if ($conn->query($query_username )->rowCount() > 0 && $conn->query($query_secret)->rowCount() > 0){
 
         // Starts the session for the appropriate user.
-        $sth = $conn->prepare($query);
+        $sth = $conn->prepare($query_username );
         $sth->execute();
         $result = $sth->fetch(PDO::FETCH_ASSOC);
         $newPassword = randomPassword();
