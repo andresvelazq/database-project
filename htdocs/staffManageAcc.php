@@ -8,12 +8,12 @@
 
 <html>
  <head>
-  <title>Final List</title>
+  <title>Manage Account</title>
  </head>
  <body>
  <h1>Manage Account </h1>
      <hr>
-    <h2>Edit Table</h2>
+    <h2>Edit Staff Table</h2>
      <div>
 		<table border="3">
 			<thead>
@@ -33,9 +33,11 @@
 
 
                          $query = "SELECT * FROM staff";
+                         session_start();
                          
                         foreach ($conn->query($query) as $row) {
                             $index = $row['id'];
+                            if($_SESSION['id'] == $index) continue; //skip access to currently logged in stuff member row
 						?>
 						<tr>
 
@@ -50,6 +52,7 @@
                             <!-- <td><?php echo '<input type = "text" name = "inSadmin'.$index.'" value ="'.$row['sadmin'].'"/>'; ?></td> -->
 
                             <?php echo '<input type = "hidden" name = "index" value ="'.$index.'"/>'; ?>
+                            
 
 							<td>
   
@@ -95,6 +98,10 @@
 			</tbody>
 		</table>
 	</div> 
+    <hr>
+
+<a href = "staffMenu.php">
+<button>Back</button>
 
 
  </body>
