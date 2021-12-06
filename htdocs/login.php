@@ -44,7 +44,7 @@
       if(verify($conn, 'professors', $email, $password));
         // Catch those who need to reset password.
         if ($_SESSION['reset']) header("Location: resetPass.php");
-        else header("Location: professorMenu.php");
+        else header("Location: professorBookRequest.php");
       exit();
     }
   ?>

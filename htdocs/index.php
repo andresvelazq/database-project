@@ -32,7 +32,8 @@
     <input type="reset", value="Clear Input">
     </form>
     <div>
-      <a href = professorCreate.php>Create account</a><br>
+      New user? 
+      <a href = professorCreate.php>Create an account</a><br>
       <a href = forgotpw.php>Forgot password</a>
     </div>
   </body>

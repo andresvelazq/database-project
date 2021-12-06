@@ -110,4 +110,11 @@ function sessionInfo($conn, $index, $table){
     }
 }
 
+function getDeadline($conn, $semester){
+  $query = "SELECT deadline FROM deadlines WHERE semester = '$semester'";
+  foreach ($conn->query($query) as $result) {
+    return $result['deadline'];
+  }
+}
+
 ?>
