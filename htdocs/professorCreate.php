@@ -8,7 +8,7 @@
     <?php if(isset($_SESSION['flagBlank']) && $_SESSION['flagBlank']) 
             print'<p style="color:red;">Please fill out all fields.</p>';?>
 
-    <form action = "checkpass.php" method = "post">
+    <form action = "checkpassCreate.php" method = "post">
       <p>
         First name:
         <?php if(isset($_SESSION['fname']))
@@ -56,7 +56,6 @@
       </p>
 
       <input type="submit", value="Create Account">
-      <!-- <input type="submit", value="Forgot password", formaction="forgotpw.php"><br> -->
       <input type="reset", value="Clear Input">
     </form>
     <div>

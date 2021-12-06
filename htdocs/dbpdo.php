@@ -72,6 +72,8 @@ function sessionInfo($conn, $index, $table){
       $_SESSION["email"] = $result['email'];
       $_SESSION["password"] = $result['password'];
       $_SESSION["secret"] = $result['secret'];
+      $_SESSION["reset"] = $result['reset'];
+      $_SESSION["table"] = $table;
     }
   }
 
@@ -87,6 +89,8 @@ function sessionInfo($conn, $index, $table){
       $_SESSION["password"] = $result['password'];
       $_SESSION["sadmin"] = $result['sadmin'];
       $_SESSION["secret"] = $result['secret'];
+      $_SESSION["reset"] = $result['reset'];
+      $_SESSION["table"] = $table;
     }
   }
 
@@ -101,6 +105,7 @@ function sessionInfo($conn, $index, $table){
         $_SESSION["isbn"] = $result['isbn'];
         $_SESSION["edition"] = $result['edition'];
         $_SESSION["publisher"] = $result['publisher'];
+        $_SESSION["table"] = $table;
       }
     }
 }

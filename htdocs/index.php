@@ -6,6 +6,10 @@
     <!-- Flag set from professorNewAdd.php if account is made successfully.-->
     <?php if(isset($_SESSION['flagCreatProf']) && $_SESSION['flagCreatProf']) 
             print'<p style="color:green;">Account creation successful.</p>';?>
+
+    <!-- Flag set from checkpassReset.php if passwaord was changed successfully.-->
+    <?php if(isset($_SESSION['flagReset']) && $_SESSION['flagReset']) 
+            print'<p style="color:green;">Password reset successful.</p>';?>
             
     <h2>Please enter email and password.</h2>
     <form action = "login.php" method = "post">

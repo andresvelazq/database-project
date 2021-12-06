@@ -34,13 +34,17 @@
     if ($_POST["person_type"] == "staff"){
       // print "<br>You are Staff";
       if(verify($conn, 'staff', $email, $password));
-        header("Location: staffMenu.php");
+        // Catch those who need to reset password.
+        if ($_SESSION['reset']) header("Location: resetPass.php");
+        else header("Location: staffMenu.php");
       exit();
     }
     else{
       // echo "You are a Professor";
       if(verify($conn, 'professors', $email, $password));
-        header("Location: professorMenu.php");
+        // Catch those who need to reset password.
+        if ($_SESSION['reset']) header("Location: resetPass.php");
+        else header("Location: professorMenu.php");
       exit();
     }
   ?>
