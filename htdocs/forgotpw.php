@@ -1,4 +1,5 @@
 <html>
+<title>Password Recovery</title>
   <body>
     <h1>Password Recovery</h1>
     <hr>

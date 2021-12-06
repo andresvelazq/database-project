@@ -1,5 +1,6 @@
 <?php session_start();?>
 <html>
+  <title>Book Order Website</title>
   <body>
     <h1>Book Order Website</h1>
     <hr>

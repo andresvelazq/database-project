@@ -1,22 +1,24 @@
 <html>
  <head>
-  <title>PHP Test</title>
+  <title>Staff Menu</title>
  </head>
  <body>
  <h1>Staff Menu </h1>
 <?php
   session_start();
-  print "Hello ".$_SESSION['fname'];
+  $name = "";
+  if(isset($_SESSION['fname'])) 
+    $name = $_SESSION['fname'];
+  print "Hello ".$name;
 ?>
  <hr>
  <nav>
     <ul>
       <li>
-        <a href = "staffManageAcc.php">Manage Accounts </a> 
-        
+        <a href = "staffManageStaff.php">Manage Staff Accounts </a> 
       </li>
       <li>
-        <a href = "staffFacultyDB.php">Faculty Database </a>
+        <a href = "staffManageFaculty.php">Manage Faculty Accounts </a>
       </li>
       <li>
         <a href = "staffEditDB.php">Edit Database</a>

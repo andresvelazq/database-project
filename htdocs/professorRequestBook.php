@@ -18,7 +18,7 @@
         $add = "INSERT INTO `requests` (`id`, `pid`, `bid`, `cid`, `semester`, `qty`) 
                 VALUES (NULL, '$pid', '$bid', '$cid', '$semester', '$qty')";
         
-        if(isset($_POST['addBtn'.$index])){
+        if(isset($_POST['reqBtn'.$index])){
             $stmt = $conn->prepare($add);
         } else {
           print "<h2>Something when wrong.</h2>";

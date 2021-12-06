@@ -14,19 +14,20 @@
       $email = $_POST["inEmail".$index];
       $password = $_POST["inPass".$index];
       $sadmin = $_POST["inSadmin".$index];
+      $reset = 1;
       
       if(empty($fname) || empty($lname) || empty($email) || empty($password) ){
-        header("Location: staffManageAcc.php");//no update if fields all/some are empty
+        header("Location: staffManageStaff.php");//no update if fields all/some are empty
         exit();      
     }      
-      $add = "INSERT INTO staff (`fname`, `lname`, `email`, `password`, `sadmin`) VALUES ('$fname', '$lname', '$email','$password','$sadmin')";
+      $add = "INSERT INTO staff (`fname`, `lname`, `email`, `password`, `sadmin`, `reset`) VALUES ('$fname', '$lname', '$email','$password','$sadmin', $reset)";
       $stmt = $conn->prepare($add);
       //execute query
       $stmt->execute();
       
       // print staff table.
         printStaff($conn);
-              header("Location: staffManageAcc.php");//goes back to staffmenutacc after addition the change is visible 
+              header("Location: staffManageStaff.php");//goes back to staffmenutacc after addition the change is visible 
         exit();
     ?>
   </body>

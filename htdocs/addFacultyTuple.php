@@ -13,19 +13,20 @@
       $lname = $_POST["inLname".$index];
       $email = $_POST["inEmail".$index];
       $password = $_POST["inPass".$index];
+      $reset = 1;
       
       if(empty($fname) || empty($lname) || empty($email) || empty($password) ){
-        header("Location: staffFacultyDB.php");//no update if fields all/some are empty
+        header("Location: staffManageFaculty.php");//no update if fields all/some are empty
         exit();      
     }      
-      $add = "INSERT INTO professors (`fname`, `lname`, `email`, `password`) VALUES ('$fname', '$lname', '$email','$password')";
+      $add = "INSERT INTO professors (`fname`, `lname`, `email`, `password`, `reset`) VALUES ('$fname', '$lname', '$email','$password', $reset)";
       $stmt = $conn->prepare($add);
       //execute query
       $stmt->execute();
       
       // print staff table.
         printStaff($conn);
-              header("Location: staffFacultyDB.php");//goes back to staffmenutacc after addition the change is visible 
+              header("Location: staffManageFaculty.php");//goes back to staffmenutacc after addition the change is visible 
         exit();
     ?>
   </body>

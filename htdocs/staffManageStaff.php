@@ -8,10 +8,10 @@
 
 <html>
  <head>
-  <title>Manage Account</title>
+  <title>Manage Staff</title>
  </head>
  <body>
- <h1>Manage Account </h1>
+ <h1>Manage Staff Accounts</h1>
      <hr>
     <h2>Edit Staff Table</h2>
      <div>
@@ -37,7 +37,7 @@
                          
                         foreach ($conn->query($query) as $row) {
                             $index = $row['id'];
-                            if($_SESSION['id'] == $index) continue; //skip access to currently logged in stuff member row
+                            
 						?>
 						<tr>
 
@@ -52,6 +52,7 @@
                             <!-- <td><?php echo '<input type = "text" name = "inSadmin'.$index.'" value ="'.$row['sadmin'].'"/>'; ?></td> -->
 
                             <?php echo '<input type = "hidden" name = "index" value ="'.$index.'"/>'; ?>
+                            <?php echo '<input type = "hidden" name = "table" value ="staff"/>'; ?>
                             
 
 							<td>
@@ -65,9 +66,12 @@
                             <td>
 
                             <?php 
-                                        echo '<input type="submit" value = "Delete" name = "deleteBtn'.$index.'"/>';
-                                        echo '</form>';
-                                ?>								
+                              if($_SESSION['id'] == $index)  //skip access to currently logged in stuff member row
+                                echo '<input type="hidden" value = "Delete" name = "deleteBtn'.$index.'"/>';
+                              else 
+                                echo '<input type="submit" value = "Delete" name = "deleteBtn'.$index.'"/>';
+                            ?>
+                            </form>								
 							</td>                           
 						</tr>
 
@@ -84,8 +88,9 @@
                             <td><?php echo '<input type = "text" name = "inLname'.$index.'" value =""/>'; ?></td>
                             <td><?php echo '<input type = "text" name = "inEmail'.$index.'" value =""/>'; ?></td>
                             <td><?php echo '<input type = "text" name = "inPass'.$index.'" value =""/>'; ?></td>
-                            <td><?php echo '<input type = "hidden" name = "inSadmin'.$index.'" value ="0"/>'; ?></td>   
-                            <?php echo '<input type = "hidden" name = "index" value ="'.$index.'"/>'; ?>           
+                            <?php echo '<input type = "hidden" name = "inSadmin'.$index.'" value ="0"/>'; ?> 
+                            <?php echo '<input type = "hidden" name = "index" value ="'.$index.'"/>'; ?> 
+                            <?php echo '<input type = "hidden" name = "table" value ="staff"/>'; ?>
                             <td>
                             <?php
                             echo '<input type="submit" value = "Add"name = "addBtn'.$index.'"/>';

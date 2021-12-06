@@ -53,7 +53,7 @@
         foreach ($conn->query($query) as $row) {
           $index = $row['id'];?>
           <tr>
-            <form action = "updateBook.php" method = "post">
+            <form action = "professorUpdateBook.php" method = "post">
               <?php echo '<input type = "hidden" name = "bid" value ="'.$row['bid'].'"/>'; ?>
               <td style="text-align:center"><?php echo $row['title']; ?></td>
               <td style="text-align:center"><?php echo $row['author']; ?></td>
@@ -71,7 +71,8 @@
                               if ($row['semester'] == 'summerSem') print '<option value ="summerSem" selected="selected">Summer</option>';
                               else print '<option value ="summerSem">Summer</option>';
                               
-                              print '</select>'; ?></td>
+                              print '</select>'; ?>
+              </td>
               <td><?php echo '<input type = "text" name = "inQtyUpdate'.$index.'"  value ="'.$row['qty'].'"/>'; ?></td>
               <?php echo '<input type = "hidden" name = "index" value ="'.$index.'"/>'; ?>
               <td><?php echo '<input type="submit" value = "Update" name = "updateBtn'.$index.'"/>';?></td>
@@ -105,7 +106,7 @@
         foreach ($conn->query($query) as $row) {
           $index = $row['id'];?>
           <tr>
-            <form action = "addBook.php" method = "post">
+            <form action = "professorRequestBook.php" method = "post">
 
               <td style="text-align:center"><?php echo $row['title']; ?></td>
               <td style="text-align:center"><?php echo $row['author']; ?></td>
@@ -113,7 +114,7 @@
               <td style="text-align:center"><?php echo $row['edition']; ?></td>
               <td style="text-align:center"><?php echo $row['publisher']; ?></td>
               <?php echo '<input type = "hidden" name = "index" value ="'.$index.'"/>'; ?>
-              <td style="text-align:center"><?php echo '<input type="submit" value = "Request" name = "addBtn'.$index.'"/>';?></td>
+              <td style="text-align:center"><?php echo '<input type="submit" value = "Request" name = "reqBtn'.$index.'"/>';?></td>
             </form>								
           </tr>
         <?php }?>
@@ -131,7 +132,7 @@
 			</tbody>
 		</table>
 	</div> 
-
-
+  <hr>
+  <a href = "index.php"><button>Logout</button>
  </body>
 </html>

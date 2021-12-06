@@ -7,7 +7,7 @@
 
 <html>
  <head>
-  <title>Final List</title>
+  <title>View List</title>
  </head>
  <body>
   <h1>View List</h1>
