@@ -11,13 +11,14 @@
       $lname = $_SESSION['lname'];
       $email = $_SESSION['email'];
       $password = $_SESSION['pass1'];
+      $secret = $_SESSION['secret'];
       
-      if(empty($fname) || empty($lname) || empty($email) || empty($password) ){
+      if(empty($fname) || empty($lname) || empty($email) || empty($password) || empty($secret)){
         $_SESSION['flagBlank'] = 1;
         header("Location: professorCreate.php");//no update if fields all/some are empty
         exit();      
     }      
-      $add = "INSERT INTO professors (`fname`, `lname`, `email`, `password`) VALUES ('$fname', '$lname', '$email','$password')";
+      $add = "INSERT INTO professors (`fname`, `lname`, `email`, `password`, `secret`) VALUES ('$fname', '$lname', '$email','$password', '$secret')";
       $stmt = $conn->prepare($add);
       //execute query
       $stmt->execute();

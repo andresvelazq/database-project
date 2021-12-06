@@ -11,6 +11,7 @@
  <body>
  <h1>Manage Book Requests</h1>
   <hr>
+  <p>Requested Books</p>
   <!-- This is the Existing table of requests and the delete button.-->
   <div>
 		<table border="3">

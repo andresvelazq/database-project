@@ -16,6 +16,7 @@
   $_SESSION['email'] = $_POST["inEmail"];
   $_SESSION['pass1'] = $_POST["inPass1"];
   $_SESSION['pass2'] = $_POST["inPass2"];
+  $_SESSION['secret'] = $_POST["secret"];
 
   if (checkpass()){
     header("Location: professorNewAdd.php");

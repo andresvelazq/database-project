@@ -28,6 +28,7 @@ function printStaff($conn){
     print "Email: " .$row['email']. "<br>";
     print "Password: " .$row['password']. "<br>";
     print "Sadmin: " .$row['sadmin']. "<br>";
+    print "Secret: " .$row['secret']. "<br>";
     print "<br>";
   }
 }
@@ -40,6 +41,7 @@ function printProfessors($conn){
     print "Lname: " .$row['lname']. "<br>";
     print "Email: " .$row['email']. "<br>";
     print "Password: " .$row['password']. "<br>";
+    print "Secret: " .$row['secret']. "<br>";
     print "<br>";
   }
 }
@@ -69,6 +71,7 @@ function sessionInfo($conn, $index, $table){
       $_SESSION["lname"] = $result['lname'];
       $_SESSION["email"] = $result['email'];
       $_SESSION["password"] = $result['password'];
+      $_SESSION["secret"] = $result['secret'];
     }
   }
 
@@ -83,6 +86,7 @@ function sessionInfo($conn, $index, $table){
       $_SESSION["email"] = $result['email'];
       $_SESSION["password"] = $result['password'];
       $_SESSION["sadmin"] = $result['sadmin'];
+      $_SESSION["secret"] = $result['secret'];
     }
   }
 

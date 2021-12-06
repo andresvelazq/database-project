@@ -1,5 +1,6 @@
 <?php session_start();?>
 <html>
+  <title>Create a new account</title>
   <body>
     <h1>Create a new account</h1>
     <hr>
@@ -47,6 +48,11 @@
       <input type="password" name="inPass2">
       <?php if(isset($_SESSION['flagInvalPass']) && $_SESSION['flagInvalPass'])      
               print"<span style='color:red'>Passwords do not match</span>";?>
+      </p>
+
+      <p>
+      Secret answer (password recovery):
+      <input type="password" name="secret">
       </p>
 
       <input type="submit", value="Create Account">
