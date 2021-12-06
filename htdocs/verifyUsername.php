@@ -27,7 +27,8 @@
         $result = $sth->fetch(PDO::FETCH_ASSOC);
         $newPassword = randomPassword();
 
-        echo "New password is: " . $newPassword;
+        // print password to user
+        printPassword($usename,$newPassword);
         
         // function that sets the new generated password to the username.
         updatePassword($newPassword, $conn, $usename);
@@ -47,6 +48,13 @@
         $stmt = $conn->prepare($update);
         $stmt->execute();
       }
+    ?>
+
+    <?php
+      function printPassword($usename, $newPassword){
+        echo "Hello '$usename' your temporary password is: '$newPassword'";
+      }
+    
     ?>
 
     <?php
