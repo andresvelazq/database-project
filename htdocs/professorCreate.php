@@ -1,32 +1,52 @@
+<?php session_start();?>
 <html>
   <body>
     <h1>Create a new account</h1>
     <hr>
     <h2>Please enter email and password.</h2>
+    <?php if(isset($_SESSION['flagBlank']) && $_SESSION['flagBlank']) 
+            print'<p style="color:red;">Please fill out all fields.</p>';?>
+
     <form action = "checkpass.php" method = "post">
       <p>
         First name:
-        <input type="text" name="fname"/>
+        <?php if(isset($_SESSION['fname']))
+                print '<input type="text" name="inFname" value="'.$_SESSION["fname"].'"/>';
+              else
+                print '<input type="text" name="inFname"/>';
+        ?>
       </p>
 
       <p>
         Last name:
-        <input type="text" name="lname">
+        <?php if(isset($_SESSION['lname']))
+                print '<input type="text" name="inLname" value="'.$_SESSION["lname"].'"/>';
+              else 
+                print '<input type="text" name="inLname"/>';
+        ?>
       </p>
 
       <p>
         Email:
-        <input type="text" name="email">
+        <?php if(isset($_SESSION['email']))
+                print '<input type="text" name="inEmail" value="'.$_SESSION["email"].'"/>';
+              else 
+                print '<input type="text" name="inEmail"/>';
+        ?>
       </p>
 
       <p>
         Password:
-        <input type="password" name="password1">
+        <input type="password" name="inPass1">
+        <?php if(isset($_SESSION['flagInvalPass']) && $_SESSION['flagInvalPass'])       
+                print"<span style='color:red'>Passwords do not match</span>";?>
       </p>
 
       <p>
       Re-enter Password:
-      <input type="password" name="password2">
+      <input type="password" name="inPass2">
+      <?php if(isset($_SESSION['flagInvalPass']) && $_SESSION['flagInvalPass'])      
+              print"<span style='color:red'>Passwords do not match</span>";?>
       </p>
 
       <input type="submit", value="Create Account">
@@ -39,3 +59,4 @@
     </div>
   </body>
 </html>
+<?php session_destroy();?>

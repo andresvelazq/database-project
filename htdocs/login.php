@@ -40,7 +40,7 @@
     else{
       // echo "You are a Professor";
       if(verify($conn, 'professors', $email, $password));
-        header("Location: prof_index.php");
+        header("Location: professorMenu.php");
       exit();
     }
   ?>

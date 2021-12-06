@@ -1,30 +1,27 @@
 <?php
-
-  function checkpass($pass1, $pass2){
-    if($pass1 == $pass2)
+  session_start();
+  // Check if passwords are the same.
+  function checkpass(){
+    if($_SESSION['pass1'] == $_SESSION['pass2'])
       return 1;
-    else
+    else {
+      $_SESSION['flagInvalPass'] = 1;
       return 0;
-  }
-
-  function checkfields(){
-    $fname = $_POST['fname'];
-    if($fname > 0){
-      echo 'fname entered';
-      exit();
-    }else{
-      echo 'fname not entered';
     }
-
   }
-  checkfields();
-  $pass1 = $_POST['password1'];
-  $pass2 = $_POST['password2'];
-  if (checkpass($pass1, $pass2) && checkfields()){
-    header("Location: professorCreateSuccess.php");
+
+  // Create session variables.
+  $_SESSION['fname'] = $_POST["inFname"];
+  $_SESSION['lname'] = $_POST["inLname"];
+  $_SESSION['email'] = $_POST["inEmail"];
+  $_SESSION['pass1'] = $_POST["inPass1"];
+  $_SESSION['pass2'] = $_POST["inPass2"];
+
+  if (checkpass()){
+    header("Location: professorNewAdd.php");
     exit();
   }else{
-    header("Location: professorCreateinvalid.php");
+    header("Location: professorCreate.php");
     exit();
   }
 ?>
