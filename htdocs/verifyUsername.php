@@ -21,17 +21,18 @@
       // If a query is found.
       if ($conn->query($query)->rowCount() > 0){
 
-      // Starts the session for the appropriate user.
-      $sth = $conn->prepare($query);
-      $sth->execute();
-      $result = $sth->fetch(PDO::FETCH_ASSOC);
-      $newPassword = randomPassword();
+        // Starts the session for the appropriate user.
+        $sth = $conn->prepare($query);
+        $sth->execute();
+        $result = $sth->fetch(PDO::FETCH_ASSOC);
+        $newPassword = randomPassword();
 
-      echo "New password is: " . $newPassword;
+        echo "New password is: " . $newPassword;
+        
+        // function that sets the new generated password to the username.
+        updatePassword($newPassword, $conn, $usename);
 
-      updatePassword($newPassword, $conn, $usename);
-
-      return 1;
+        return 1;
       }
       else{
         print "Username not valid.";
