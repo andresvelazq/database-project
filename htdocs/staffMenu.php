@@ -24,7 +24,10 @@
         <a href = "staffEditDB.php">Edit Database</a>
       </li>
       <li>
-        <a href = "staffBroadcast.php">Broadcast</a>
+        <a href = "staffInvite.php">Invite Professors</a>
+      </li>
+      <li>
+        <a href = "staffRemind.php">Remind Professors to submit book requests</a>
       </li>
       <li>
         <a href = "staffViewRequest.php">View Request</a>
