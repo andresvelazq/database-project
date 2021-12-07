@@ -48,7 +48,7 @@
   </tbody>
   
 </table>
-<form action="staffViewList.php" method="post">
+<form action="staffViewRequests.php" method="post">
     <select name = "inSemester" size="1">
     <?php
       
@@ -64,5 +64,6 @@
     </select>
     <input type="submit", value="Submit", name="submitBtn"/>
   </form>
+  <a href = "staffMenu.php"><button>Back</button>
  </body>
 </html>

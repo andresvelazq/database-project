@@ -21,26 +21,16 @@
         <a href = "staffManageFaculty.php">Manage Faculty Accounts </a>
       </li>
       <li>
-        <a href = "staffEditDB.php">Edit Database</a>
-      </li>
-      <li>
         <a href = "staffInvite.php">Invite Professors</a>
       </li>
       <li>
         <a href = "staffRemind.php">Remind Professors to submit book requests</a>
       </li>
       <li>
-        <a href = "staffViewRequest.php">View Requests</a>
-      </li>
-      <li>
-        <a href = "staffFinalList.php">Create Final list </a>
-      </li>
-      <li>
-        <a href = "staffViewList.php">View list </a>
+        <a href = "staffViewRequests.php">View Requests</a>
       </li>
     </ul>
   </nav>
-  <a href = "index.php">
-<button>Back</button>
+  <a href = "index.php"><button>Back</button>
  </body>
 </html>

@@ -16,5 +16,6 @@ include "dbpdo.php";
                 <input type="submit" value = "Send" name = "sendBtn"/>
             </form>
         </div>
+        <a href = "staffMenu.php"><button>Back</button>
     </body>
 </html>
