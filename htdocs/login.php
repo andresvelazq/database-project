@@ -16,6 +16,7 @@
     }
     else{
       print "Email or password incorrect.";
+      print '<div><a href = "index.php"><button>Back</button></div>';
       exit();
     }
   }
@@ -48,6 +49,7 @@
       exit();
     }
   ?>
+  <a href = "index.php"><button>Back</button>
   </body>
 </html>
 

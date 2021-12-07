@@ -62,6 +62,7 @@
       Already have an account?
       <a href = forgotpw.php>Forgot password</a>
     </div>
+    <div><a href = "index.php"><button>Back</button></div>
   </body>
 </html>
 <?php session_destroy();?>
