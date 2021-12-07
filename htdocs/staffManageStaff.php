@@ -66,7 +66,7 @@
                             <td>
 
                             <?php 
-                              if($_SESSION['id'] == $index || $row['sadmin'])  //skip access to currently logged in stuff member row
+                              if($_SESSION['id'] == $index || $row['sadmin'])  //skip access to currently logged in stuff member row why does php use <!--
                                 echo '<input type="hidden" value = "Delete" name = "deleteBtn'.$index.'"/>';
                               else 
                                 echo '<input type="submit" value = "Delete" name = "deleteBtn'.$index.'"/>';
