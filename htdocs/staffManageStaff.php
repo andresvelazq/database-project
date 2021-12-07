@@ -45,12 +45,25 @@
 
                             <form action = "updateDB.php" method = "post">
 
+                            <?php 
+                         if($row['sadmin'] && $_SESSION['id'] != 1){ ?> <!-- super admin ID is 1 non super admin cannot edit super admin account !-->
+                            <td><?php echo $row['fname'] ; ?></td>
+                            <td><?php echo $row['lname'] ; ?></td>
+                            <td><?php echo $row['email'] ; ?></td>
+                            <td><?php echo '<input type = "password" readonly name = "inPass'.$index.'" value ="'.$row['password'].'"/>'; ?></td>
+                            <!-- <td><?php echo '<input type = "text" name = "inSadmin'.$index.'" value ="'.$row['sadmin'].'"/>'; ?></td> -->
+
+
+                            <?php  }else{  ?>
+
                             <td><?php echo '<input type = "text" name = "inFname'.$index.'"  value ="'.$row['fname'].'"/>'; ?></td>
                             <td><?php echo '<input type = "text" name = "inLname'.$index.'" value ="'.$row['lname'].'"/>'; ?></td>
                             <td><?php echo '<input type = "text" name = "inEmail'.$index.'" value ="'.$row['email'].'"/>'; ?></td>
                             <td><?php echo '<input type = "password" name = "inPass'.$index.'" value ="'.$row['password'].'"/>'; ?></td>
                             <!-- <td><?php echo '<input type = "text" name = "inSadmin'.$index.'" value ="'.$row['sadmin'].'"/>'; ?></td> -->
+                           
 
+                                <?php  }  ?>
                             <?php echo '<input type = "hidden" name = "index" value ="'.$index.'"/>'; ?>
                             <?php echo '<input type = "hidden" name = "table" value ="staff"/>'; ?>
                             
