@@ -30,7 +30,7 @@
         <a href = "staffRemind.php">Remind Professors to submit book requests</a>
       </li>
       <li>
-        <a href = "staffViewRequest.php">View Request</a>
+        <a href = "staffViewRequest.php">View Requests</a>
       </li>
       <li>
         <a href = "staffFinalList.php">Create Final list </a>
