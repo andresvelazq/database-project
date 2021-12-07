@@ -3,6 +3,7 @@
   include "dbpdo.php";
   $_SESSION['pass1'] = $_POST["inPass1"];
   $_SESSION['pass2'] = $_POST["inPass2"];
+  
   $stmt = NULL;
 
   // Check if passwords are the same.
@@ -12,7 +13,8 @@
       $index = $_SESSION['id'];
       $password = $_SESSION['pass1'];
       $table = $_SESSION["table"];
-      $update = "UPDATE $table SET password= '$password', reset= '0' WHERE id = '$index'";
+      $secret = $_POST['inSecret'];
+      $update = "UPDATE $table SET password= '$password', reset= '0', secret= '$secret' WHERE id = '$index'";
       $stmt = $conn->prepare($update);
       $stmt->execute();
 

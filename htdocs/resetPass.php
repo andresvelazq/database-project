@@ -19,6 +19,11 @@
         print"<span style='color:red'>Passwords do not match</span>";?>
       </p>
 
+      <p>
+        Secret Answer:
+        <input type="password" name="inSecret">
+      </p>
+
       <input type="submit", value="Submit">
       <input type="reset", value="Clear Input">
     </form>
